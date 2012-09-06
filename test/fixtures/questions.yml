@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ques_title: MyString
+  opt_1: MyString
+  opt_2: MyString
+  opt_3: MyString
+  opt_4: MyString
+  cor_opt: MyString
+
+two:
+  ques_title: MyString
+  opt_1: MyString
+  opt_2: MyString
+  opt_3: MyString
+  opt_4: MyString
+  cor_opt: MyString

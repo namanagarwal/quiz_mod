@@ -1,0 +1,33 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Ques title</th>
+    <th>Opt 1</th>
+    <th>Opt 2</th>
+    <th>Opt 3</th>
+    <th>Opt 4</th>
+    <th>Cor opt</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.ques_title %></td>
+    <td><%= question.opt_1 %></td>
+    <td><%= question.opt_2 %></td>
+    <td><%= question.opt_3 %></td>
+    <td><%= question.opt_4 %></td>
+    <td><%= question.cor_opt %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>

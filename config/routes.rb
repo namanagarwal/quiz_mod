@@ -1,8 +1,13 @@
 QuizMod::Application.routes.draw do
   resources :questions
+  match 'new_question' => "Question#new"
 
   resources :quizzes
+  match 'all' => "Quiz#new", :as => "all_quizzes"
 
+  root :to => "Quizzes#index"
+ 
+ #match 'all' => redirect ('/quizzes')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

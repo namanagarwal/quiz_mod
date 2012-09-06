@@ -1,4 +1,19 @@
 class QuestionsController < ApplicationController
+   before_filter :get_question, :only => [:edit,:update,:destroy]
+   before_filter :check_auth, :only => [:edit,:update,:destroy]
+
+  def get_question
+     @question = Question.find(params[:id])
+  end
+  def check_auth
+    if session[:quiz_title] != @question.quiz_title
+        flash[:notice] = "Sorry, you cant edit this tweet"
+        redirect_to questions_path 
+    end
+
+  end
+
+
   # GET /questions
   # GET /questions.json
   def index
@@ -34,7 +49,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
-    @question = Question.find(params[:id])
+    
+    
+    
   end
 
   # POST /questions
@@ -56,7 +73,7 @@ class QuestionsController < ApplicationController
   # PUT /questions/1
   # PUT /questions/1.json
   def update
-    @question = Question.find(params[:id])
+    
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
@@ -72,7 +89,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
-    @question = Question.find(params[:id])
+    
     @question.destroy
 
     respond_to do |format|
